@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Compliments pour Julia</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="sky-day">
+  <canvas id="hearts-canvas" aria-hidden="true"></canvas>
+
+  <header class="topbar">
+    <nav class="tabs">
+      <button class="tab active" data-target="home">Accueil</button>
+      <button class="tab" data-target="calendar">Calendrier</button>
+      <button id="btn-dev" class="tab tab-dev">GABRIEL DEV MODE 🔒</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="screen active">
+      <h1 id="timer"></h1>
+
+      <div class="card">
+        <button id="btn-compliment" class="btn accent">Compliment</button>
+        <p id="compliment" class="compliment">Appuie sur le bouton pour un compliment</p>
+      </div>
+
+      <div class="card kisses">
+        <h2>Boîte à bisous</h2>
+        <p class="kisses-count"><span id="kisses-count">0</span> bisous</p>
+        <button id="btn-kiss" class="btn primary">Ajouter un bisou 💋</button>
+      </div>
+    </section>
+
+    <section id="calendar" class="screen">
+      <div class="calendar-header">
+        <button id="cal-prev" class="btn ghost">‹</button>
+        <h2 id="cal-title"></h2>
+        <button id="cal-next" class="btn ghost">›</button>
+      </div>
+      <div id="calendar-grid" class="calendar-grid" aria-label="Calendrier"></div>
+      <div class="legend">
+        <span class="dot monthly"></span> Anniversaire de mois
+        <span class="dot yearly"></span> Anniversaire annuel
+      </div>
+    </section>
+  </main>
+
+  <!-- PIN -->
+  <div id="pin-overlay" class="overlay hidden" role="dialog" aria-modal="true">
+    <div class="popup">
+      <h2>Entrer le code PIN</h2>
+      <input id="pin-input" type="password" maxlength="6" inputmode="numeric" />
+      <button id="pin-ok" class="btn primary">Valider</button>
+      <button id="pin-cancel" class="btn ghost">Annuler</button>
+    </div>
+  </div>
+
+  <!-- Mode dev -->
+  <div id="dev-popup" class="overlay hidden" role="dialog" aria-modal="true">
+    <div class="popup popup-large">
+      <h2>Mode Développeur</h2>
+
+      <div class="grid-2">
+        <div class="dev-block">
+          <h3>Compliments</h3>
+          <div class="row">
+            <input id="input-text" placeholder="Écris un compliment" />
+          </div>
+          <div class="row">
+            <button id="add" class="btn primary">Ajouter</button>
+            <button id="edit" class="btn warn">Éditer</button>
+            <button id="del" class="btn danger">Supprimer</button>
+          </div>
+          <select id="select-list" size="6"></select>
+        </div>
+
+        <div class="dev-block">
+          <h3>Thème</h3>
+          <select id="theme-select">
+            <option value="rose">Rose</option>
+            <option value="bleu">Bleu</option>
+            <option value="nocturne">Nocturne</option>
+            <option value="pastel">Pastel</option>
+          </select>
+
+          <h3>Bisous</h3>
+          <button id="reset-kisses" class="btn danger">Remettre le compteur à 0</button>
+
+          <h3>Dates</h3>
+          <label>Jour d’anniversaire de mois
+            <input id="monthly-day" type="number" min="1" max="31" />
+          </label>
+          <label>Date anniversaire annuel
+            <input id="yearly-date" type="date" />
+          </label>
+        </div>
+      </div>
+
+      <div class="row end">
+        <button id="close-dev" class="btn ghost">Fermer</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
